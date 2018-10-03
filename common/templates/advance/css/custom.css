@@ -1,0 +1,13 @@
+.active-page span {
+    color: #fff;
+    margin: 10px;
+}
+.bt-st-reg {
+    text-transform: uppercase;
+    color: #fff;
+    background: #F58F23;
+    padding: 10px 50px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 30px;
+}
