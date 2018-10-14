@@ -8,7 +8,7 @@ class m151104_092853_init_schema extends Migration
     public function up()
     {
         echo "\ninitial schema\n";
-        $dbSchema = dirname((dirname(__DIR__))) . "/db/viettalk_promotion_cms.sql";
+        $dbSchema = dirname((dirname(__DIR__))) . "/db/story.sql";
         if (!file_exists($dbSchema)) {
             echo "***** DB schema not found: " . $dbSchema . " *****\n";
             return false;
