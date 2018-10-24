@@ -12,12 +12,12 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.6",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+        "yiisoft/yii2": "~2.0.8",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
         "dektrium/yii2-user": "0.9.*@dev",
         "yiisoft/yii2-redis": "*",
         "bower-asset/bootstrap": "3.3.7"
@@ -48,7 +48,9 @@
         "symfony/dom-crawler": "2.8",
         "symfony/css-selector": "2.8",
         "donatj/phpuseragentparser": "*",
-        "nsept/yii2-passfield": "*"
+        "nsept/yii2-passfield": "*",
+        "bower-asset/bootstrap-tagsinput": "~0.8",
+        "wbraganca/yii2-tagsinput": "dev-master"
     },
     "config": {
         "process-timeout": 1800,

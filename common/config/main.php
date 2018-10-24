@@ -9,6 +9,8 @@ return [
     'aliases' => [
         '@cp' => '@cp',
         '@file_export' => 'uploads/file_export',
+        '@cat_image' => 'uploads/cat_images',
+        '@content_images' => 'uploads/content_images',
     ],
     'components' => [
 

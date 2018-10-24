@@ -8,7 +8,7 @@
 
 namespace common\components;
 
-use common\models\ActivityUser;
+use common\models\UserActivity;
 use Yii;
 use yii\base\Action;
 use yii\base\ActionFilter;
@@ -29,7 +29,7 @@ class ActionLogTracking extends ActionFilter
 
     public $post_action = [];
 
-    public $model_type_default = ActivityUser::ACTION_TARGET_TYPE_OTHER;
+    public $model_type_default = UserActivity::ACTION_TARGET_TYPE_OTHER;
 
     public $model_types = [];
 
@@ -71,15 +71,15 @@ class ActionLogTracking extends ActionFilter
         $agent = parse_user_agent($request->getUserAgent());
         $user_action = $user->identity;
         $description = $is_post ?
-            'User ' . $user_action->username . Yii::t('app', ' thực hiện action ') . $action->id . Yii::t('app', ' tới ') . ActivityUser::actionTargets()[$this->model_type_default]
-            : 'User ' . $user_action->username . Yii::t('app', ' thực hiện load trang ') . $action->id . ' ' . ActivityUser::actionTargets()[$this->model_type_default];
+            'User ' . $user_action->username . Yii::t('app', ' thực hiện action ') . $action->id . Yii::t('app', ' tới ') . UserActivity::actionTargets()[$this->model_type_default]
+            : 'User ' . $user_action->username . Yii::t('app', ' thực hiện load trang ') . $action->id . ' ' . UserActivity::actionTargets()[$this->model_type_default];
 
         if ($action->id == 'update-version-api') {
-            $description = 'User ' . $user_action->username . Yii::t('app', ' thực hiện action ') . $action->id . Yii::t('app', ' tới ') . ActivityUser::actionTargets()[$this->model_type_default];
+            $description = 'User ' . $user_action->username . Yii::t('app', ' thực hiện action ') . $action->id . Yii::t('app', ' tới ') . UserActivity::actionTargets()[$this->model_type_default];
         }
 
         $params = $request->getQueryParams();
-        $audit_log = new ActivityUser();
+        $audit_log = new UserActivity();
         $audit_log->user_id = $user->id;
         $audit_log->username = $user_action->username;
         $audit_log->ip_address = $request->getUserIP();
@@ -111,10 +111,10 @@ class ActionLogTracking extends ActionFilter
         if ($action->controller->audit_id) {
             Yii::info('have audit_id: ' . $action->controller->audit_id);
             /**
-             * @var $audit_log ActivityUser
+             * @var $audit_log UserActivity
              */
             Yii::info(json_encode($result), 'after action result');
-            $audit_log = ActivityUser::findOne($action->controller->audit_id);
+            $audit_log = UserActivity::findOne($action->controller->audit_id);
             if (isset($audit_log)) {
                 if (is_string($result)) {
                     $audit_log->status = $result;

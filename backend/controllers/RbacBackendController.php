@@ -5,10 +5,9 @@ namespace backend\controllers;
 use common\auth\filters\Yii2Auth;
 use common\auth\helpers\AuthHelper;
 use common\components\ActionLogTracking;
-use common\models\ActivityUser;
+use common\models\UserActivity;
 use common\models\AuthItem;
 use common\models\AuthItemChild;
-use common\models\UserActivity;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\data\ArrayDataProvider;
@@ -30,7 +29,7 @@ class RbacBackendController extends BaseBEController
             [
                 'class'              => ActionLogTracking::className(),
                 'user'               => Yii::$app->user,
-                'model_type_default' => ActivityUser::ACTION_TARGET_TYPE_RBAC_BE,
+                'model_type_default' => UserActivity::ACTION_TARGET_TYPE_RBAC_BE,
                 'post_action'        => [
                     ['action' => 'create-permission', 'accept_ajax' => true],
                     ['action' => 'create-role', 'accept_ajax' => false],

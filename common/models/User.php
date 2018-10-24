@@ -28,7 +28,7 @@ use yii\web\IdentityInterface;
  * @property string $password_reset_token Dung de reset mat khau qua mail
  * @property string $access_login_token
  *
- * @property ActivityUser[] $activityUsers
+ * @property UserActivity[] $UserActivitys
  * @property AuthAssignment[] $authAssignments
  * @property AuthItem[] $itemNames
  * @property Promotion[] $promotions
@@ -250,9 +250,9 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getActivityUsers()
+    public function getUserActivitys()
     {
-        return $this->hasMany(ActivityUser::className(), ['user_id' => 'id']);
+        return $this->hasMany(UserActivity::className(), ['user_id' => 'id']);
     }
 
     /**

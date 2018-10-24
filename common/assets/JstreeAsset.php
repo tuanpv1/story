@@ -13,16 +13,17 @@ use yii\web\View;
 class JstreeAsset extends AssetBundle
 {
 
-    public $sourcePath = '@common/template/metronic';
+    public $basePath = '@common/template';
     public $css = [
-        'global/plugins/jstree/dist/themes/default/style.min.css'
+        'advance/plugins/jstree/dist/themes/default/style.min.css'
     ];
     public $js = [
-        'global/plugins/jstree/dist/jstree.min.js',
-        'admin/pages/scripts/ui-tree.js'
+        'advance/js/jquery.min.js',
+        'advance/plugins/jstree/dist/jstree.min.js',
+        'advance/js/scripts/ui-tree.js'
     ];
     public $depends = [
-        'common\assets\MetronicAdminAsset',
+        'yii\web\YiiAsset'
     ];
 
 }
